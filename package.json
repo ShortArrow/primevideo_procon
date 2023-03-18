@@ -1,0 +1,33 @@
+{
+  "name": "primevideo_procon",
+  "version": "0.0.1",
+  "main": "src/index.ts",
+  "repository": "https://github.com/ShortArrow/primevideo_procon.git",
+  "author": "shortarrow <bamboogeneral@shortarrow.jp>",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@crxjs/vite-plugin": "^1.0.14",
+    "@types/chrome": "^0.0.224",
+    "@types/node": "^18.15.3",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.55.0",
+    "@vitejs/plugin-react-swc": "^3.0.0",
+    "eslint": "^8.35.0",
+    "typescript": "^5.0.0",
+    "vite": "^4.1.0",
+    "vitest": "^0.29.3"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "module": "CommonJS",
+    "target": "ESNext",
+    "outDir": "dist",
+    "lib": ["ESNext", "DOM"],
+    "sourceMap": true,
+    "moduleResolution": "node",
+    "typeRoots": ["src/types"],
+    "allowSyntheticDefaultImports": true,
+    //"esModuleInterop": true,
+    "strict": true,
+    //"noUnusedLocals": true,
+    //"resolveJsonModule": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
+}
