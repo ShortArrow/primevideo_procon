@@ -3,9 +3,6 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 
 export default defineConfig({
-  define: {
-    "process.env": {},
-  },
   build: {
     outDir: "dist",
     target: "es6",
@@ -20,6 +17,6 @@ export default defineConfig({
   },
   plugins: [react()],
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx"], // .jsx拡張子も有効にする
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
   },
 });
