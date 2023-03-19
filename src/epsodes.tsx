@@ -45,6 +45,7 @@ function episodeTile(props: IEpisode) {
               size="1.5em"
               sx={{
                 color: "#1a98ff",
+                visibility: hover ? "hidden" : undefined,
               }}
             />
             <Grow in={hover}>
