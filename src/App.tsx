@@ -12,7 +12,7 @@ function app(props: IApp) {
     <Box py={.8} color="white">
       <Grid container>
         {props.parsedList.map((item, key) => (
-          <Grid xs={2} md={1} key={key} px={.3}>
+          <Grid xs={3} sm={2} md={1} key={key} px={.3} py={.3}>
             <EpisodeTile parseData={item} />
           </Grid>
         ))}
