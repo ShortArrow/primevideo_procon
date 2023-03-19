@@ -3,6 +3,7 @@ export interface IParsed {
   thumbnail: Element;
   percentage: number;
   watched: boolean;
+  playUrl: string;
 }
 function parser(epList: NodeListOf<Element>) {
   let ll: Array<IParsed> = [];
@@ -13,22 +14,42 @@ function parser(epList: NodeListOf<Element>) {
       divm.textContent = "thumb";
       ll.push({
         episodeId: pickUpEpisodeId(element),
-        thumbnail: document.createElement("div"),
+        thumbnail: pickUpThumbnail(element),
         percentage: pickUpPercentage(element),
-        watched: true,
+        watched: pickUpIsWatched(element),
+        playUrl: pickUpPlayUrl(element),
       });
     }
   }
   return ll;
 }
 
+function pickUpThumbnail(element: Element) {
+  const thumbnailElement = element.getElementsByTagName(
+    "picture"
+  )[0] as HTMLPictureElement;
+  return thumbnailElement;
+}
+
+function pickUpIsWatched(element: Element) {
+  const watchedDataElement = element.querySelector(
+    "[data-is-watched]"
+  ) as HTMLDivElement;
+  return Boolean(watchedDataElement.getAttribute("data-is-watched"));
+}
+
+function pickUpPlayUrl(element: Element) {
+  const playButton = element.querySelector(
+    "[data-automation-id='episodes-playbutton']"
+  ) as HTMLAnchorElement;
+  return playButton.href;
+}
+
 function pickUpPercentage(element: Element) {
   const percentElement = element.querySelector(
     "[style^='width:'][style$='%']"
   ) as HTMLDivElement;
-  const percentage = percentElement
-    ? parseInt(percentElement.style.width)
-    : 0;
+  const percentage = percentElement ? parseInt(percentElement.style.width) : 0;
   return percentage;
 }
 

@@ -13,29 +13,31 @@ function episodeTile(props: IEpisode) {
   debuglog(props.parseData.episodeId.toString());
   return (
     <Box sx={{ position: "relative" }}>
-      <Paper sx={{ p: 1, backgroundColor: "#00050d" }}>
-        <div>{props.parseData.watched}</div>
-        <Box
-          sx={{
-            display: "flex",
-            color: "white",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Box sx={{ position: "absolute" }}>{props.parseData.episodeId}</Box>
-          <CircularProgress
-            variant="determinate"
-            value={props.parseData.percentage}
-            disableShrink
-            size="1.5em"
+      <a href={props.parseData.playUrl}>
+        <Paper sx={{ p: 1, backgroundColor: "#00050d" }}>
+          <div>{props.parseData.watched}</div>
+          <Box
             sx={{
-              color: "#1a98ff",
+              display: "flex",
+              color: "white",
+              alignItems: "center",
+              justifyContent: "center",
             }}
-          />
-        </Box>
-        {/* {params.thumbnail} */}
-      </Paper>
+          >
+            <Box sx={{ position: "absolute" }}>{props.parseData.episodeId}</Box>
+            <CircularProgress
+              variant="determinate"
+              value={props.parseData.percentage}
+              disableShrink
+              size="1.5em"
+              sx={{
+                color: "#1a98ff",
+              }}
+            />
+          </Box>
+          {/* {params.thumbnail} */}
+        </Paper>
+      </a>
     </Box>
   );
 }
