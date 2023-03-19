@@ -4,6 +4,8 @@ export interface IParsed {
   percentage: number;
   watched: boolean;
   playUrl: string;
+  playText: string;
+  resumeText: string;
 }
 function parser(epList: NodeListOf<Element>) {
   let ll: Array<IParsed> = [];
@@ -18,6 +20,8 @@ function parser(epList: NodeListOf<Element>) {
         percentage: pickUpPercentage(element),
         watched: pickUpIsWatched(element),
         playUrl: pickUpPlayUrl(element),
+        playText: pickUpPlayText(element),
+        resumeText: pickUpResumeText(element),
       });
     }
   }
@@ -50,12 +54,37 @@ function pickUpPlayUrl(element: Element) {
   return "";
 }
 
+function pickUpPlayText(element: Element) {
+  const playButton = element.querySelector(
+    "[data-automation-id='episodes-playbutton']"
+  ) as HTMLAnchorElement;
+  if (playButton) {
+    const playText = playButton.getAttribute("aria-label");
+    if (playText !== null) {
+      return playText.replace("{lineBreak}"," : ");
+    }
+  }
+  return "";
+}
+
 function pickUpPercentage(element: Element) {
   const percentElement = element.querySelector(
     "[style^='width:'][style$='%']"
   ) as HTMLDivElement;
   const percentage = percentElement ? parseInt(percentElement.style.width) : 0;
   return percentage;
+}
+
+function pickUpResumeText(element: Element) {
+  const resumeTextElement = element.querySelector(
+    "[data-automation-id='dv-progress-resume-text']"
+  ) as HTMLDivElement;
+  if (resumeTextElement) {
+    if (resumeTextElement.textContent) {
+      return resumeTextElement.textContent;
+    }
+  }
+  return "";
 }
 
 function pickUpEpisodeId(element: Element) {
