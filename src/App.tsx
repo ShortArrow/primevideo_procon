@@ -1,14 +1,16 @@
 import React from "react";
-
+import episode from "./epsodes";
+import { IParsed } from "./parser";
 interface IApp {
-  readingTime: number;
+  parsedList: IParsed[];
 }
 
 function app(props: IApp) {
   return (
     <>
-      <div>hello chrome extension</div>
-      <div>{props.readingTime}</div>
+      {props.parsedList.map((v, k) => (
+        <div key={k}>{episode(v)}</div>
+      ))}
     </>
   );
 }
