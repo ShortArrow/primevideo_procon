@@ -28,7 +28,7 @@ function episodeTile(props: IEpisode) {
             variant="determinate"
             value={props.parseData.percentage}
             disableShrink
-            size={30}
+            size="1.5em"
             sx={{
               color: "#1a98ff",
             }}
