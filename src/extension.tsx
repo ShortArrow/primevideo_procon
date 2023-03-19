@@ -1,3 +1,4 @@
+import { CssBaseline } from "@mui/material";
 import React from "react";
 import * as ReactDOMClient from "react-dom/client";
 import App from "./App";
@@ -14,7 +15,12 @@ export function extension() {
   res.forEach((v) => {
     console.debug(v);
   });
-  const app = <App parsedList={res}></App>;
+  const app = (
+    <>
+      <CssBaseline />
+      <App parsedList={res}></App>
+    </>
+  );
 
   if (controller) {
     debuglog("found container");
