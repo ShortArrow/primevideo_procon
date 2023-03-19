@@ -12,9 +12,6 @@ function extension() {
   const controller = document.getElementById("pv-nav-container");
   const epList = document.querySelectorAll("[id^='av-ep-episodes-']");
   const res = parser(epList);
-  res.forEach((v) => {
-    console.debug(v);
-  });
   const app = (
     <>
       <CssBaseline />
