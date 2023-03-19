@@ -1,17 +1,34 @@
+import Box from "@mui/material/Box";
+import CircularProgress from "@mui/material/CircularProgress";
 import React from "react";
 import debuglog from "./logger";
 import { IParsed } from "./parser";
 
-function episode(params: IParsed) {
-  debuglog(params.episodeId.toString());
+interface IEpisode {
+  parseData: IParsed;
+}
+
+function episodeTile(props: IEpisode) {
+  debuglog(props.parseData.episodeId.toString());
   return (
     <>
-      <div>{params.episodeId}</div>
-      <div>{params.percentage}</div>
-      <div>{params.watched}</div>
+      <Box sx={{ position: "relative" }}>
+        <div>{props.parseData.watched}</div>
+        <Box sx={{ display: "flex" }}>
+          {props.parseData.episodeId}
+          <CircularProgress
+            variant="determinate"
+            value={props.parseData.percentage}
+            disableShrink
+            sx={{
+              color: "blue",
+            }}
+          />
+        </Box>
+      </Box>
       {/* {params.thumbnail} */}
     </>
   );
 }
 
-export default episode;
+export default episodeTile;

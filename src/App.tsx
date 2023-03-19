@@ -1,5 +1,6 @@
+import { Grid } from "@mui/material";
 import React from "react";
-import episode from "./epsodes";
+import EpisodeTile from "./epsodes";
 import { IParsed } from "./parser";
 interface IApp {
   parsedList: IParsed[];
@@ -7,11 +8,13 @@ interface IApp {
 
 function app(props: IApp) {
   return (
-    <>
-      {props.parsedList.map((v, k) => (
-        <div key={k}>{episode(v)}</div>
+    <Grid container direction="row">
+      {props.parsedList.map((item, key) => (
+        <Grid xs={2} md={1} key={key}>
+          <EpisodeTile parseData={item} />
+        </Grid>
       ))}
-    </>
+    </Grid>
   );
 }
 

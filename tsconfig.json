@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "jsx": "react",
+    "jsx": "react-jsx",
     "module": "CommonJS",
     "target": "ESNext",
     "outDir": "dist",
     "lib": ["ESNext", "DOM"],
     "sourceMap": true,
-    "moduleResolution": "node",
-    "typeRoots": ["src/types"],
+    //"moduleResolution": "node",
+    "typeRoots": ["node_modules/@types"],
     "allowSyntheticDefaultImports": true,
     //"esModuleInterop": true,
     "strict": true,
