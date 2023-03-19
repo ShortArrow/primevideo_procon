@@ -1,5 +1,7 @@
+import PlayCircle from "@mui/icons-material/PlayCircle";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
+import Grow from "@mui/material/Grow";
 import Paper from "@mui/material/Paper";
 import React from "react";
 import debuglog from "./logger";
@@ -10,9 +12,13 @@ interface IEpisode {
 }
 
 function episodeTile(props: IEpisode) {
-  debuglog(props.parseData.episodeId.toString());
+  const [hover, setHovered] = React.useState(false);
   return (
-    <Box sx={{ position: "relative" }}>
+    <Box
+      sx={{ position: "relative" }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
       <a href={props.parseData.playUrl}>
         <Paper sx={{ p: 1, backgroundColor: "#00050d" }}>
           <div>{props.parseData.watched}</div>
@@ -24,7 +30,14 @@ function episodeTile(props: IEpisode) {
               justifyContent: "center",
             }}
           >
-            <Box sx={{ position: "absolute" }}>{props.parseData.episodeId}</Box>
+            <Box
+              sx={{
+                position: "absolute",
+                visibility: hover ? "hidden" : undefined,
+              }}
+            >
+              {props.parseData.episodeId}
+            </Box>
             <CircularProgress
               variant="determinate"
               value={props.parseData.percentage}
@@ -34,6 +47,14 @@ function episodeTile(props: IEpisode) {
                 color: "#1a98ff",
               }}
             />
+            <Grow in={hover}>
+              <PlayCircle
+                sx={{
+                  position: "absolute",
+                  fontSize: "2em",
+                }}
+              />
+            </Grow>
           </Box>
           {/* {params.thumbnail} */}
         </Paper>

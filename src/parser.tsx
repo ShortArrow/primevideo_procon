@@ -42,7 +42,12 @@ function pickUpPlayUrl(element: Element) {
   const playButton = element.querySelector(
     "[data-automation-id='episodes-playbutton']"
   ) as HTMLAnchorElement;
-  return playButton.href;
+  if (playButton) {
+    if (playButton.href !== null) {
+      return playButton.href;
+    }
+  }
+  return "";
 }
 
 function pickUpPercentage(element: Element) {

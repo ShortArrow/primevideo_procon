@@ -1,4 +1,4 @@
-import { CssBaseline } from "@mui/material";
+import CssBaseline from "@mui/material/CssBaseline";
 import React from "react";
 import * as ReactDOMClient from "react-dom/client";
 import App from "./App";
@@ -8,7 +8,7 @@ import parser from "./parser";
 const extensionRootName = "pvconroot";
 const extensionRootSelector = "#" + extensionRootName;
 
-export function extension() {
+function extension() {
   const controller = document.getElementById("pv-nav-container");
   const epList = document.querySelectorAll("[id^='av-ep-episodes-']");
   const res = parser(epList);
@@ -44,3 +44,5 @@ export function extension() {
     }
   }
 }
+
+export default extension;

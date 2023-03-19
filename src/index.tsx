@@ -1,11 +1,7 @@
-import { extension } from "./extension";
+import extension from "./extension";
 import debuglog from "./logger";
 
 debuglog("wake extension");
-
-function testfunc() {
-  debuglog("hey");
-}
 
 /**
  * Execute the callback function only when the page rendering is complete.
