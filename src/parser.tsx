@@ -36,42 +36,30 @@ function pickUpThumbnail(element: Element) {
 }
 
 function pickUpIsWatched(element: Element) {
-  const watchedDataElement = element.querySelector(
-    "[data-is-watched]"
-  ) as HTMLDivElement;
-  return Boolean(watchedDataElement.getAttribute("data-is-watched"));
+  const watchedDataElement = element.getAttribute("data-is-watched");
+  return Boolean(watchedDataElement);
 }
 
 function pickUpPlayUrl(element: Element) {
   const playButton = element.querySelector(
     "[data-automation-id='episodes-playbutton']"
   ) as HTMLAnchorElement;
-  if (playButton) {
-    if (playButton.href !== null) {
-      return playButton.href;
-    }
-  }
-  return "";
+  return playButton?.href ?? "";
 }
 
 function pickUpPlayText(element: Element) {
   const playButton = element.querySelector(
     "[data-automation-id='episodes-playbutton']"
   ) as HTMLAnchorElement;
-  if (playButton) {
-    const playText = playButton.getAttribute("aria-label");
-    if (playText !== null) {
-      return playText.replace("{lineBreak}"," : ");
-    }
-  }
-  return "";
+  const playText = playButton?.getAttribute("aria-label") ?? "";
+  return playText.replace("{lineBreak}"," : ");
 }
 
 function pickUpPercentage(element: Element) {
   const percentElement = element.querySelector(
     "[style^='width:'][style$='%']"
   ) as HTMLDivElement;
-  const percentage = percentElement ? parseInt(percentElement.style.width) : 0;
+  const percentage = parseInt(percentElement?.style.width ?? "0");
   return percentage;
 }
 
@@ -79,16 +67,12 @@ function pickUpResumeText(element: Element) {
   const resumeTextElement = element.querySelector(
     "[data-automation-id='dv-progress-resume-text']"
   ) as HTMLDivElement;
-  if (resumeTextElement) {
-    if (resumeTextElement.textContent) {
-      return resumeTextElement.textContent;
-    }
-  }
-  return "";
+  return resumeTextElement?.textContent ?? "";
 }
 
 function pickUpEpisodeId(element: Element) {
-  return parseInt(element.id.split("-").slice(-1)[0]) + 1;
+  const [, id] = element.id.split("-");
+  return parseInt(id) + 1;
 }
 
 export default parser;

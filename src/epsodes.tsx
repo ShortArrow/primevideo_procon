@@ -19,13 +19,10 @@ function episodeTile(props: IEpisode) {
   const [element, setElement] = React.useState<HTMLElement | null>(null);
   const containerRef = React.useRef<HTMLDivElement | null>(null);
   const canPlay = props.parseData.playUrl !== "";
-  function handleMouseEnter() {
-    setHovered(true);
-  }
-  function handleMouseLeave() {
-    setHovered(false);
-  }
-  React.useEffect(() => {}, [hover]);
+
+  const handleMouseEnter = () => setHovered(true);
+  const handleMouseLeave = () => setHovered(false);
+
   React.useEffect(() => {
     if (props.parseData.thumbnail) {
       setElement(
@@ -42,11 +39,12 @@ function episodeTile(props: IEpisode) {
       );
     }
   }, [element]);
+
   return (
     <Box
       sx={{ position: "relative" }}
-      onMouseEnter={() => handleMouseEnter()}
-      onMouseLeave={() => handleMouseLeave()}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <a
         href={
