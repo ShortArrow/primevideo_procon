@@ -1,8 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "procon for prime video",
-  "description": "Professional controller for Amazon prime video",
-  "version": "0.0.1",
+  "name": "プロコン for prime video",
+  "description": "Amazon prime video のプロコン",
+  "version": "0.0.2",
+  "default_locale": "ja",
   "icons": {
     "16": "img/16.png",
     "32": "img/32.png",
@@ -11,26 +12,8 @@
   },
   "content_scripts": [
     {
-      "js": ["index.js"],
-      "matches": [
-        "https://www.amazon.co.jp/gp/video/detail/*",
-        "https://amazon.com.au/gp/video/detail/*",
-        "https://amazon.com.br/gp/video/detail/*",
-        "https://amazon.ca/gp/video/detail/*",
-        "https://amazon.fr/gp/video/detail/*",
-        "https://amazon.de/gp/video/detail/*",
-        "https://amazon.in/gp/video/detail/*",
-        "https://amazon.it/gp/video/detail/*",
-        "https://amazon.com.mx/gp/video/detail/*",
-        "https://amazon.nl/gp/video/detail/*",
-        "https://amazon.sg/gp/video/detail/*",
-        "https://amazon.es/gp/video/detail/*",
-        "https://amazon.com.tr/gp/video/detail/*",
-        "https://amazon.ae/gp/video/detail/*",
-        "https://amazon.co.uk/gp/video/detail/*",
-        "https://amazon.com/gp/video/detail/*",
-        "https://amazon.cn/gp/video/detail/*"
-      ]
+      "js": ["src/index.tsx"],
+      "matches": ["https://www.amazon.co.jp/gp/video/detail/*"]
     }
   ]
 }
