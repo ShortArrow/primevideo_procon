@@ -8,14 +8,14 @@ export default defineConfig({
   },
   build: {
     outDir: "dist",
-    target: "es2015",
+    target: "es2020",
     minify: true,
     sourcemap: false,
     emptyOutDir: true,
     lib: {
       entry: "src/index.tsx",
       name: "mylib",
-      fileName: "index.js",
+      fileName: (_) => "index.js",
     },
   },
   plugins: [react()],

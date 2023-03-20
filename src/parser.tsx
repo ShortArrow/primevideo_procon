@@ -1,3 +1,4 @@
+import debuglog from "./logger";
 export interface IParsed {
   episodeId: number;
   thumbnail: HTMLElement;
@@ -71,7 +72,7 @@ function pickUpResumeText(element: Element) {
 }
 
 function pickUpEpisodeId(element: Element) {
-  const [, id] = element.id.split("-");
+  const id = element.id.split("-").reverse()[0];
   return parseInt(id) + 1;
 }
 
