@@ -14,3 +14,4 @@ Add Pro Controller to your tab about Prime Video episodes page.
 - Lazy loading
 - Multi language support with i18n
 - Multi locales support about Amazon URL domains
+- Add Thumbnail Image to Tiles
