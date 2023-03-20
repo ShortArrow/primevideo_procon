@@ -10,8 +10,8 @@ export default defineConfig({
   build: {
     outDir: "dist",
     target: "es6",
-    minify: false,
-    sourcemap: true,
+    minify: true,
+    sourcemap: false,
     emptyOutDir: true,
     lib: {
       entry: "src/index.tsx",

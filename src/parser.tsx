@@ -1,6 +1,6 @@
 export interface IParsed {
   episodeId: number;
-  thumbnail: Element;
+  thumbnail: HTMLElement;
   percentage: number;
   watched: boolean;
   playUrl: string;

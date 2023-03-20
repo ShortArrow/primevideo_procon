@@ -9,10 +9,10 @@ interface IApp {
 
 function app(props: IApp) {
   return (
-    <Box py={.8} color="white">
+    <Box color="white" sx={{ width: "80vw", py: 0.3 }}>
       <Grid container>
         {props.parsedList.map((item, key) => (
-          <Grid xs={3} sm={2} md={1} key={key} px={.3} py={.3}>
+          <Grid xs={3} sm={2} md={1} key={key} px={0.3} py={0.3}>
             <EpisodeTile parseData={item} />
           </Grid>
         ))}
