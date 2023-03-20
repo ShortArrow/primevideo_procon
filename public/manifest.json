@@ -3,7 +3,6 @@
   "name": "プロコン for prime video",
   "description": "Amazon prime video のプロコン",
   "version": "0.0.2",
-  "default_locale": "ja",
   "icons": {
     "16": "img/16.png",
     "32": "img/32.png",
