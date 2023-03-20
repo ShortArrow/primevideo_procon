@@ -12,8 +12,9 @@
   },
   "content_scripts": [
     {
-      "js": ["src/index.tsx"],
+      "js": ["index.js"],
       "matches": ["https://www.amazon.co.jp/gp/video/detail/*"]
     }
-  ]
+  ],
+  "homepage_url": "https://github.com/ShortArrow/primevideo_procon"
 }
