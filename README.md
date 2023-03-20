@@ -1,4 +1,4 @@
-# ProCon for Prime Vidio
+# ProCon for Prime Video
 
 This is Web browser extension. For heavy user about Amazon Prime Video.
 
